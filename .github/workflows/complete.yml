@@ -1,0 +1,22 @@
+name: Test Example
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5.0.0
+    - name: set-up NPM framework
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+    - name: building code
+      run: npm run build --if-present
+    - name: testing code
+      run: npm test
+    - name: Verification
+      run: ls -alhR
