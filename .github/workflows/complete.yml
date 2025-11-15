@@ -22,5 +22,5 @@ jobs:
       run: npm test
     - name: Verification
       run: ls -alhR
-    - name: Better Test Reports Action
-      uses: mridang/action-test-reporter@v1.6.0
+#    - name: Better Test Reports Action
+#      uses: mridang/action-test-reporter@v1.6.0
