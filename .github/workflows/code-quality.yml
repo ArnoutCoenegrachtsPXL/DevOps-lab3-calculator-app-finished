@@ -62,7 +62,9 @@ jobs:
         run: npm run lint
       
       - name: Prettier
-        run: npm run format:check
+        run: |
+          npm run format
+          npm run format:check
 
       - name: Security audit
         run: npm audit
