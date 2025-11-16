@@ -41,6 +41,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    continue-on-error: false
 
     steps:
       - name: Get dependencies
@@ -62,7 +63,4 @@ jobs:
 
       - name: Security audit
         run: npm audit
-  after-test:
-    needs: [test]
-
     
