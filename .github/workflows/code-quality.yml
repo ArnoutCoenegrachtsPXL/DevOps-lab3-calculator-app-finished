@@ -46,7 +46,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5.0.0
-        
+
       - name: Get dependencies
         uses: actions/setup-node@v4
         with:
@@ -62,7 +62,7 @@ jobs:
         run: npm run lint
       
       - name: Prettier
-        run: npm run format:checkout
+        run: npm run format:check
 
       - name: Security audit
         run: npm audit
