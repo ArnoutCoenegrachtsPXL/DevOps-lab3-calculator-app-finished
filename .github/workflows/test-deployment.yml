@@ -12,7 +12,7 @@ jobs:
 
     - name: stop any running containers
       run: |
-        if [ $(docker ps -q | wc -l) -gt 0];
+        if [ $(docker ps -q \| wc -l) -gt 0];
           then
             echo "deleting active containers"
             docker rm -f -v $(docker ps -aq)
