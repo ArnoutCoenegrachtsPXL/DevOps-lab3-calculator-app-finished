@@ -13,7 +13,7 @@ jobs:
     - name: pull container
       runs: docker image pull arnoutcoenegrachtspxl/pxl-app:latest
     
-    - name: stop any running containers:
+    - name: stop any running containers
       runs: docker rm -f -v $(docker ps -aq)
 
     - name: run container
