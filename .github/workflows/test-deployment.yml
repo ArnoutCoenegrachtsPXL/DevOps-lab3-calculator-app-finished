@@ -11,7 +11,11 @@ jobs:
       run: docker pull arnoutcoenegrachtspxl/pxl-app:bad0b083ffa85606172e3fb99ea4432c0ed0ab90
     
     - name: stop any running containers
-      run: docker rm -f -v $(docker ps -aq)
-
+      run: |
+        docker ps -q | wc -l
+        if [ $(!!) -gt 0];
+          then
+             docker rm -f -v $(docker ps -aq)
+        fi
     - name: run container
       run: docker run -p 3000:3000 arnoutcoenegrachtspxl/pxl-app
