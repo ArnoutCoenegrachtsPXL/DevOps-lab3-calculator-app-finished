@@ -1,0 +1,20 @@
+name: Test deployment
+on: 
+  workflow_dispatch
+  #push:
+  #  branches:
+  #   - main
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+    - name: pull container
+      runs: docker image pull arnoutcoenegrachtspxl/pxl-app:latest
+    
+    - name: stop any running containers:
+      runs: docker rm -f -v $(docker ps -aq)
+
+    - name: run container
+      runs: docker run -p 80:3000 arnoutcoenegrachtspxl/pxl-app
