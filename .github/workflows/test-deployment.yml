@@ -8,8 +8,8 @@ jobs:
 
     steps:
     - name: pull container
-      run: docker pull arnoutcoenegrachtspxl/pxl-app:bad0b083ffa85606172e3fb99ea4432c0ed0ab90
-    
+      run: docker pull arnoutcoenegrachtspxl/app:latest
+
     - name: stop any running containers
       run: |
         docker ps -q | wc -l
@@ -18,4 +18,4 @@ jobs:
              docker rm -f -v $(docker ps -aq)
         fi
     - name: run container
-      run: docker run -p 3000:3000 arnoutcoenegrachtspxl/pxl-app:bad0b083ffa85606172e3fb99ea4432c0ed0ab90
+      run: docker run -p 3000:3000 arnoutcoenegrachtspxl/app:latest
