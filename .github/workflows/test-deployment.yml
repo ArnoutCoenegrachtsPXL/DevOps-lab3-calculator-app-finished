@@ -15,7 +15,10 @@ jobs:
         docker ps -q | wc -l
         if [ $(!!) -gt 0];
           then
-             docker rm -f -v $(docker ps -aq)
+            echo "deleting active containers"
+            docker rm -f -v $(docker ps -aq)
+          else
+            echo "no containers to delete"
         fi
     - name: run container
-      run: docker run -p 8000:3000 -d arnoutcoenegrachtspxl/app:latest
+      run: docker run -p 8000:3000 arnoutcoenegrachtspxl/app:latest
