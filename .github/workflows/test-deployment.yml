@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - name: pull container
-      run: docker image pull arnoutcoenegrachtspxl/pxl-app
+      run: docker pull arnoutcoenegrachtspxl/pxl-app:bad0b083ffa85606172e3fb99ea4432c0ed0ab90
     
     - name: stop any running containers
       run: docker rm -f -v $(docker ps -aq)
