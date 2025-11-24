@@ -1,12 +1,13 @@
 name: code quality
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch
+  #push:
+  #  branches:
+  #    - main
 
-  pull_request:
-    branches:
-      - main
+  #pull_request:
+  #  branches:
+  #    - main
     
 
 jobs:
