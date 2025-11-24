@@ -1,9 +1,6 @@
 name: Test deployment
 on: 
   workflow_dispatch
-  #push:
-  #  branches:
-  #   - main
 
 jobs:
   test:
@@ -17,4 +14,4 @@ jobs:
       runs: docker rm -f -v $(docker ps -aq)
 
     - name: run container
-      runs: docker run -p 80:3000 arnoutcoenegrachtspxl/pxl-app
+      runs: docker run -p 3000:3000 arnoutcoenegrachtspxl/pxl-app
