@@ -11,12 +11,7 @@ jobs:
       run: docker pull arnoutcoenegrachtspxl/app:latest
 
     - name: stop any running containers
-      run: if [ $(docker ps -q | wc -l) -gt 0];
-          then
-            echo "deleting active containers"
-            docker rm -f -v $(docker ps -aq)
-          else
-            echo "no containers to delete"
-        fi
+      run: docker rm -f -v $(docker ps -aq) || true
+      
     - name: run container
       run: docker run -p 8000:3000 -d arnoutcoenegrachtspxl/app:latest
