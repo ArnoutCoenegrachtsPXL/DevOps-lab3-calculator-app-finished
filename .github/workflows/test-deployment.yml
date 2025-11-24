@@ -18,4 +18,4 @@ jobs:
              docker rm -f -v $(docker ps -aq)
         fi
     - name: run container
-      run: docker run -p 3000:3000 arnoutcoenegrachtspxl/app:latest
+      run: docker run arnoutcoenegrachtspxl/app:latest
