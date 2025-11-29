@@ -1,4 +1,4 @@
-name: Deploy via beanstalk
+name: Deploy via beanstalk (werkt niet)
 on:
   workflow_dispatch
 
@@ -35,3 +35,7 @@ jobs:
         version_label: 3.0.1
         region: us-west-2
         deployment_package: deploy.zip
+
+
+    - name: this one doesn't work
+      run: echo "it just doesn't work"
