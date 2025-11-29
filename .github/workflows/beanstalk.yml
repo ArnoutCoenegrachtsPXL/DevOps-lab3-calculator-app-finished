@@ -1,4 +1,4 @@
-name: Deploy master
+name: Deploy via beanstalk
 on:
   workflow_dispatch
 
