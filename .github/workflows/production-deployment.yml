@@ -14,12 +14,12 @@ jobs:
         username: ubuntu
         port: 22
         key: ${{ secrets.SSH_KEY }}
-        
+
     - name: pull container
-      run: docker pull arnoutcoenegrachtspxl/app:latest
+      run: sudo docker pull arnoutcoenegrachtspxl/app:latest
 
     - name: stop any running containers
-      run: docker rm -f -v $(docker ps -aq) || true
+      run: sudo docker rm -f -v $(docker ps -aq) || true
       
     - name: run container
-      run: docker run -p 80:3000 -d arnoutcoenegrachtspxl/app:latest
+      run: sudo docker run -p 80:3000 -d arnoutcoenegrachtspxl/app:latest
