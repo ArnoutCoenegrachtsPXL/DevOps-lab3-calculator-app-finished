@@ -1,0 +1,25 @@
+name: Product deployment
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ssh into EC2
+      uses: appleboy/ssh-action@v1.2.4
+      with:
+        host: 3.238.134.10
+        username: ubuntu
+        port: 22
+        key: ${{ secrets.SSH_KEY }}
+        
+    - name: pull container
+      run: docker pull arnoutcoenegrachtspxl/app:latest
+
+    - name: stop any running containers
+      run: docker rm -f -v $(docker ps -aq) || true
+      
+    - name: run container
+      run: docker run -p 80:3000 -d arnoutcoenegrachtspxl/app:latest
