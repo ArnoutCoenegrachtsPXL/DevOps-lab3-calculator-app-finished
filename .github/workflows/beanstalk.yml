@@ -1,0 +1,26 @@
+name: Deploy master
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout source code
+      uses: actions/checkout@v2
+
+    - name: Generate deployment package
+      run: zip -r deploy.zip . -x '*.git*'
+
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v22
+      with:
+        aws_access_key: ASIA3A4JHIQFMTM6UUBF
+        aws_secret_key: bhO9K1acUJpVL5OPrPBfXkMnbZ333Nkp7VtnngfV
+        aws_session_token: IQoJb3JpZ2luX2VjEAYaCXVzLXdlc3QtMiJGMEQCIHBxAaeDuLaL4+A6MdILLJ/WGY8mvfzBlhrk64AZLzK9AiAPi6WnbOlruRkuB8BSROHuKwg0xbg6M7Lqtk5vCnBRkirFAgjP//////////8BEAIaDDc1NzgxMjY0MjgyNiIMyOPoHpC9H2zkAOJcKpkCiVahXLo1KSIFFGOgUurAS5UqslY5bacMcZM4Hc8cNz+cK3BILhAvGyBCS/PJQsukKCUuxmqqy8zXWNawaSu9GM9iZCtajc7FiN1m1jfMEaB/tVX6C+N37L7v+5ZnNlX/JVNFcFKZ2U/ciqam0WchypEEeymEAkrfqS1nTpGMvJ8eTUCPxWFWiXa7DBXqpBc3x8wmliAwjwU+MhQNc7h/82GhguHwSPDpbp526frRUJtWcjVPoC1EbvMi9SLiXmTlGCEa0A+5zFCHFT+iJo8PCjCEjCecQL0bBbfDMCRh4rWpGPHgssOuNwi/s0sUmUxuwFM6uTqsjorSy0xvGADu96jqD9PwJDnHdgrssRw9x0NSyfrfUKOtoUQw1u+ryQY6ngFEnLn19PYrGa+1XqthGaqhI9TXstlXQfDHB0PWJsESZrebEXN+lGh5tlDxUnGaXzonf/QIyu+ewYEKWA91NU6aY1FMt+dh4ucKqpUoAkZZGYywVsljrHtqNGk4etZBXI4nWwj484IpEK9ROQT198+gyYZYClx9tPWZHTaElEGgIpJY6y6ShwEKQ8mNn6PyWp+Z7MMEMD668PQcP04DPQ==
+        application_name: CalculatorApp
+        environment_name: CalculatorApp
+        version_label: 1
+        region: us-west-2
+        deployment_package: deploy.zip
