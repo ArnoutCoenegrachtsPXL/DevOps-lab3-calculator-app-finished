@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="api-testcollection-dev>ops" tests="2" time="0.886">
+  <testsuite name="lijstStudenten" id="c677f6c1-3d3e-47a6-9901-53a71f97ab35" timestamp="2025-12-30T15:13:16.952Z" tests="2" failures="0" errors="0" time="0.721">
+    <testcase name="Status code is 200" time="0.721" classname="ApiTestcollectionDevOps"/>
+    <testcase name="Response has correct data scheme" time="0.721" classname="ApiTestcollectionDevOps"/>
+  </testsuite>
+  <testsuite name="getInfoArnout" id="f7656da0-7256-4178-86c6-61700fad5e7b" timestamp="2025-12-30T15:13:16.952Z" tests="6" failures="0" errors="0" time="0.165">
+    <testcase name="Status code is 200" time="0.165" classname="ApiTestcollectionDevOps"/>
+    <testcase name="Response has correct data scheme" time="0.165" classname="ApiTestcollectionDevOps"/>
+    <testcase name="id is correct" time="0.165" classname="ApiTestcollectionDevOps"/>
+    <testcase name="name is correct" time="0.165" classname="ApiTestcollectionDevOps"/>
+    <testcase name="age is correct" time="0.165" classname="ApiTestcollectionDevOps"/>
+    <testcase name="group is correct" time="0.165" classname="ApiTestcollectionDevOps"/>
+  </testsuite>
+</testsuites>
