@@ -7,14 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Checkout
+      uses: actions/checkout@v5.0.0
+
     - name: Better Test Reports Action
       uses: mridang/action-test-reporter@v1.7.0
       with:
-        coverage-file: 'junit.xml'
+        coverage-file: './junit.xml'
     
     - name: Test Reporter
       uses: dorny/test-reporter@v2.4.0
       with:
         name: Unit tests
-        path: junit.xml
+        path: ./junit.xml
         reporter: java-junit
