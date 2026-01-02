@@ -1,0 +1,20 @@
+name: test voor PE
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Better Test Reports Action
+      uses: mridang/action-test-reporter@v1.7.0
+      with:
+        coverage-file: './junit.xml'
+    
+    - name: Test Reporter
+      uses: dorny/test-reporter@v2.4.0
+      with:
+        name: Unit tests
+        path: ./junit.xml
+        reporter: java-junit
